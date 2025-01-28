@@ -291,7 +291,7 @@ export default function Page({ params }) {
                     <div>
                       <p className='mb-05'><small><i className="material-symbols-outlined smallIcon">editor_choice</i> Global Rank</small></p>
                       {globalranking !== null ?
-                        <h2 className='mb-05 fw-medium'>#{globalranking.data.global_rank}</h2>
+                        <h2 className='mb-05 fw-medium'>#{globalranking?.data?.global_rank}</h2>
                         : Dotloader()
                       }
                     </div>
@@ -299,10 +299,10 @@ export default function Page({ params }) {
                       <p className='mb-05'><small><i className="material-symbols-outlined smallIcon">link_off</i> Broken Link</small></p>
 
                       {brokenLinks?.success === true ?
-                        brokenLinks.data.urls.length === 0 ?
-                          <h2 className='mb-05 fw-medium text-success'>PASSED</h2>
-                          :
+                        brokenLinks.data?.urls?.length > 0 ?
                           <h2 className='mb-05 fw-medium text-danger'>{brokenLinks.data.urls.length} found</h2>
+                          :
+                          <h2 className='mb-05 fw-medium text-success'>PASSED</h2>
                         :
                         Dotloader()
                       }
@@ -340,7 +340,7 @@ export default function Page({ params }) {
               <div>
                 <p className='mb-05'><small><i className="material-symbols-outlined smallIcon">sensors</i> Robots Scan</small></p>
                 {robotsData !== null ?
-                  robotsData.success === true ? <h2 className='mb-05 fw-medium'>PASSED</h2> : <h2 className='mb-05 fw-medium text-danger'>FAILED</h2>
+                  robotsData.success === true ? <h2 className='mb-05 fw-medium text-success'>PASSED</h2> : <h2 className='mb-05 fw-medium text-danger'>FAILED</h2>
                   : Dotloader()
                 }
               </div>
@@ -456,7 +456,7 @@ export default function Page({ params }) {
               {brokenLinks !== null ?
                 <ul className='brokenLinkList'>
 
-                  {brokenLinks?.urls?.length > 0 ? brokenLinks.data.urls.map((item, index) => (
+                  {brokenLinks?.data?.urls?.length > 0 ? brokenLinks.data.urls.map((item, index) => (
                     <li key={index}><span className='brokenUrl'>{item.url}</span> <span className='statusCode text-danger fw-medium'>{item.status_code}</span></li>
                   )) : '0 Broken link found'}
                 </ul>
