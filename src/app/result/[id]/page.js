@@ -236,7 +236,7 @@ export default function Page({ params }) {
                             <dd>{hostingData.data.ssl.issued_by}</dd>
                           </div>
                           <div className='companyInfo d-flex'>
-                            <dt>Website Provider</dt>
+                            <dt>DNS Provider</dt>
                             <dd>{hostingData.data.host.website_provider}</dd>
                           </div>
                           <div className='companyInfo d-flex'>
@@ -348,7 +348,7 @@ export default function Page({ params }) {
 
             {/* Speed */}
             <div id='performance' className='mb-10'>
-              <h2 className='mb-3'><span className="material-symbols-outlined">swap_driving_apps_wheel</span> Performance</h2>
+              <h2 className='mb-3'><span className="material-symbols-outlined">swap_driving_apps_wheel</span>Site Performance</h2>
               {speed !== null ?
                 speed.data?.success === true ?
                   <>
